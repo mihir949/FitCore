@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-primary-black text-text-white font-sans;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-primary-dark rounded-xl p-6 shadow-lg border border-primary-dark-light;
+  }
+  
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-xl hover:border-accent-blue/20;
+  }
+  
+  .btn-primary {
+    @apply bg-accent-blue hover:bg-accent-blue/90 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105;
+  }
+  
+  .btn-secondary {
+    @apply bg-primary-dark-light hover:bg-primary-dark-lighter text-text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 border border-primary-dark-lighter;
+  }
+  
+  .input-field {
+    @apply w-full px-4 py-3 bg-primary-dark-light border border-primary-dark-lighter rounded-lg text-text-white placeholder-text-gray focus:outline-none focus:ring-2 focus:ring-accent-blue focus:border-transparent transition-all duration-300;
+  }
+  
+  .glass-effect {
+    @apply bg-primary-dark/80 backdrop-blur-sm border border-primary-dark-light/50;
+  }
+  
+  .gradient-text {
+    @apply bg-gradient-to-r from-accent-blue to-accent-green bg-clip-text text-transparent;
+  }
+  
+  .progress-bar {
+    @apply w-full bg-primary-dark-light rounded-full h-3 overflow-hidden;
+  }
+  
+  .progress-fill {
+    @apply h-full bg-gradient-to-r from-accent-blue to-accent-green transition-all duration-500 ease-out;
+  }
+}
+
+@layer utilities {
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Custom animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 5px rgba(58, 8, 241, 0.3); }
+  50% { box-shadow: 0 0 20px rgba(58, 8, 241, 0.6); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
